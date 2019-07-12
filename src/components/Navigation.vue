@@ -1,10 +1,20 @@
 <template>
-    <div>
-        <div class="container">
+    <div id="navigation">
+        <!-- <div class="container">
             <ul>
                 <li><a :href="homelink">Home</a></li>
             </ul>
-        </div>
+        </div> -->
+        <v-toolbar dense>
+            <v-toolbar-side-icon></v-toolbar-side-icon>
+            <v-toolbar-title>VisLab</v-toolbar-title>
+            <v-spacer></v-spacer>
+            <v-toolbar-items class="hidden-sm-and-down">
+                <v-btn flat>link1</v-btn>
+                <v-btn flat>link2</v-btn>
+                <v-btn flat>link3</v-btn>
+            </v-toolbar-items>
+        </v-toolbar>
     </div>
 </template>
 
@@ -18,7 +28,13 @@ export default {
 </script>
 
 <style scoped>
-    
+    /* #navigation{
+        position: fixed;
+        top: 0; left: 0;
+    }
+    .container{
+        float: right;
+    }
     ul{
         height: 60px; width: 100%;
         background-color: #aaa;
@@ -40,5 +56,5 @@ export default {
     ul>li>a{
         color: #fff;
         text-decoration: none;
-    }
+    } */
 </style>

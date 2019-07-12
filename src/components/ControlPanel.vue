@@ -1,22 +1,21 @@
 <template>
     <div id="control-panel">
-        <div id="container">
-            <label for="">value1: </label>
-            <input type="text">
-        </div>
+        <v-container fluid grid-list-lg>
+            <v-layout row wrap>
+                <v-flex xs12 sm6>
+                    <v-text-field label="Solo" single-line solo></v-text-field>
+                </v-flex>
+            </v-layout>
+        </v-container>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'ControlPanel'
-}
+    name: "ControlPanel"
+};
 </script>
 
 <style scoped>
-    #control-panel{
-        background-color: #666;
-        border-radius: 3px;
-        width: 200px; height: 500px;
-    }
+
 </style>
