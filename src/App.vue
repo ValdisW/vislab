@@ -8,7 +8,7 @@
             <ControlPanel></ControlPanel>
           </v-flex>
           <v-flex md9>
-            <DisplayPanel></DisplayPanel>
+            <DisplayPanel width="displayWidth" height="displayHeight"></DisplayPanel>
           </v-flex>
         </v-layout>
         
@@ -24,10 +24,20 @@ import DisplayPanel from "./components/DisplayPanel.vue";
 
 export default {
   name: "app",
+  data() {
+    return {
+      displayWidth: null,
+      displayHeight: null
+    }
+  },
   components: {
     Navigation,
     ControlPanel,
     DisplayPanel
+  },
+  mounted() {
+    this.displayWidth = 600;
+    this.displayHeight = 600
   }
 };
 </script>

@@ -6,9 +6,14 @@
 
 <script>
 import * as THREE from 'three'
+import OrbitControls from 'three-orbitcontrols'
 
 export default {
     name: 'DisplayPanel',
+    props: {
+        width: Number,
+        height: Number
+    },
     data() {
         return {
             scene: null,
@@ -17,13 +22,19 @@ export default {
 
             testMesh: null,
             testLight: null,
+
+            helper: null,
+            controls: null
         }
     },
     methods: {
         init: function() {
             const container = document.getElementById('container');
+            container.setAttribute('width', parseInt(this.width));
+            container.setAttribute('height', parseInt(this.height));
 
             this.scene = new THREE.Scene();
+            this.scene.background = new THREE.Color(0xffffff);
             this.camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 10000);
             this.renderer = new THREE.WebGLRenderer({
                 canvas: document.getElementById('container'),
@@ -32,6 +43,11 @@ export default {
             this.renderer.setSize(container.clientWidth, container.clientHeight);
 
             this.camera.position.set(0, 0, 5);
+
+            this.controls = new OrbitControls(this.camera, container);
+
+            this.helper = new THREE.AxesHelper(20, 20, 20);
+            this.scene.add(this.helper);
 
             this.testLight = new THREE.DirectionalLight(0xffffff, 0.8);
             this.testLight.position.set(1, 2, 3);
@@ -59,9 +75,8 @@ export default {
 </script>
 
 <style scoped>
-
-    #container{
+    /* #container{
         height: 400px;
-    }
+    } */
 </style>
 
