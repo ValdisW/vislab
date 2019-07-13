@@ -8,7 +8,7 @@
             <ControlPanel></ControlPanel>
           </v-flex>
           <v-flex md9>
-            <DisplayPanel width="displayWidth" height="displayHeight"></DisplayPanel>
+            <DisplayPanel :displayWidth="displayWidth" :displayHeight="displayHeight"></DisplayPanel>
           </v-flex>
         </v-layout>
         
@@ -21,6 +21,7 @@
 import Navigation from "./components/Navigation.vue";
 import ControlPanel from "./components/ControlPanel.vue";
 import DisplayPanel from "./components/DisplayPanel.vue";
+import TestComp from "./components/testComp.vue";
 
 export default {
   name: "app",
@@ -33,10 +34,10 @@ export default {
   components: {
     Navigation,
     ControlPanel,
-    DisplayPanel
+    DisplayPanel,
   },
   mounted() {
-    this.displayWidth = 600;
+    this.displayWidth = 800;
     this.displayHeight = 600
   }
 };
