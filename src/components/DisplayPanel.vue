@@ -1,8 +1,6 @@
 <template>
     <div id="display-panel">
-        <p>canvas宽度:<span>{{displayWidth}}</span></p>
-        <p>canvas高度:<span>{{displayHeight}}</span></p>
-        <canvas id="this.canvasDOM" :class="displayWidth" width="500" height="500"></canvas>
+        <canvas id="container" :class="displayWidth" :width="displayWidth" :height="displayHeight"></canvas>
     </div>
 </template>
 
@@ -34,7 +32,6 @@ export default {
     methods: {
         init: function() {
             this.canvasDOM = document.getElementById('container');
-            console.log(this.displayWidth, this.displayHeight);
             this.canvasDOM.setAttribute('width', this.displayWidth);
             this.canvasDOM.setAttribute('height', this.displayHeight);
 
@@ -42,12 +39,12 @@ export default {
             this.scene.background = new THREE.Color(0xffffff);
             this.camera = new THREE.PerspectiveCamera(75, this.canvasDOM.clientWidth / this.canvasDOM.clientHeight, 0.1, 10000);
             this.renderer = new THREE.WebGLRenderer({
-                canvas: document.getElementById('this.canvasDOM'),
+                canvas: document.getElementById('container'),
                 antialias: true
             });
             this.renderer.setSize(this.canvasDOM.clientWidth, this.canvasDOM.clientHeight);
 
-            this.camera.position.set(0, 0, 5);
+            this.camera.position.set(10, 5, 10);
 
             this.controls = new OrbitControls(this.camera, this.canvasDOM);
 
@@ -58,8 +55,8 @@ export default {
             this.testLight.position.set(1, 2, 3);
             this.scene.add(this.testLight);
             
-            let testMaterial = new THREE.MeshLambertMaterial({color: 0xff0000});
-            let testGeometry = new THREE.BoxGeometry(1,2 ,3);
+            let testMaterial = new THREE.MeshLambertMaterial({color: 0xffffff});
+            let testGeometry = new THREE.BoxGeometry(1, 2, 3);
             this.testMesh = new THREE.Mesh(testGeometry, testMaterial);
 
             this.scene.add(this.testMesh);
@@ -72,14 +69,21 @@ export default {
             this.testMesh.rotation.z += 0.01;
         }
     },
-    mounted() {
-        console.log('mounted');
+    updated() {
+        console.log('----updated----');
         this.init();
         this.animate();
-    },
-    updated(){
-        console.log('updated');
-        console.log('displaywidth:', this.displayWidth);
     }
 }
 </script>
+
+<style scoped>
+    #display-panel{
+        position: absolute;
+        right: 15px;
+    }
+    canvas{
+        border-radius: 5px;
+        box-shadow: 0 0 8px 0 #ccc;
+    }
+</style>

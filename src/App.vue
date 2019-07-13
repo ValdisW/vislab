@@ -11,7 +11,6 @@
             <DisplayPanel :displayWidth="displayWidth" :displayHeight="displayHeight"></DisplayPanel>
           </v-flex>
         </v-layout>
-        
       </v-container>
     </v-app>
   </div>
@@ -38,7 +37,7 @@ export default {
   },
   mounted() {
     this.displayWidth = 800;
-    this.displayHeight = 600
+    this.displayHeight = 600;
   }
 };
 </script>

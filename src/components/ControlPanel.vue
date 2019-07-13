@@ -11,6 +11,7 @@
                             <v-text-field label="Solo" single-line solo></v-text-field>
                         </v-card-text>
                     </v-card>
+                    <v-checkbox></v-checkbox>
                 </v-expansion-panel-content>
             </v-expansion-panel>
 
@@ -28,7 +29,3 @@ export default {
     name: "ControlPanel"
 };
 </script>
-
-<style scoped>
-
-</style>
