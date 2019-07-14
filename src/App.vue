@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <v-app>
+    <v-app dark>
       <Navigation homelink="http://github.com/valdise" />
       <v-container fluid>
         <v-layout row wrap>

@@ -11,7 +11,7 @@
                             <v-text-field label="Solo" single-line solo></v-text-field>
                         </v-card-text>
                     </v-card>
-                    <v-checkbox></v-checkbox>
+                    <v-checkbox label="camera fixed"></v-checkbox>
                 </v-expansion-panel-content>
             </v-expansion-panel>
 

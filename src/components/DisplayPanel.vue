@@ -61,7 +61,7 @@ export default {
 
             this.scene.add(this.testMesh);
         },
-        animate: function(){
+        animate: function() {
             requestAnimationFrame(this.animate);
             this.renderer.render(this.scene, this.camera);
             this.testMesh.rotation.x += 0.01;
@@ -70,7 +70,6 @@ export default {
         }
     },
     updated() {
-        console.log('----updated----');
         this.init();
         this.animate();
     }
